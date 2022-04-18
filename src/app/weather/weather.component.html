@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <h3 class="text-center my-4">Buscar el tiempo:</h3>
+          <form
+            [formGroup]="weatherSearchForm" 
+            (ngSubmit)="sendToAPIXU(weatherSearchForm.value)"
+          >
+            <div class="form-group">
+                <input
+                    class="form-control"
+                    type="text"
+                    id="weatherLocation"
+                    aria-describedby="weatherLocation"
+                    placeholder="Please input a Location"
+                    formControlName="location"
+                />
+                </div>
+                <br>
+                <div class="text-center"> 
+                    <button type="submit" class="btn btn-success btn-md">
+                        Buscar
+                    </button>
+                    <br><br>
+                    <h5>Introducir en el siguiente formato: City, Country.</h5>
+                    <h5>Ejemplo: London, UK; Madrid, Spain </h5>
+                </div>
+           </form>
+        </div>
+      <div class="col-md-6">
+            <h3 class="text-center my-4">Detalles del tiempo:</h3>
+            <p class="text-center">
+                Tiempo actual: {{this.weatherData?.current.weather_descriptions}}</p>
+            <p class="text-center">
+                Temperatura en grados Celsius: {{this.weatherData?.current.temperature}}</p>
+            <p class="text-center">
+                Sensación de temperatura en grados Celsius: {{this.weatherData?.current.feelslike}}</p>
+            <p class="text-center">
+                Lugar buscado: {{this.weatherData?.location.name}},
+                {{this.weatherData?.location.country}}</p>
+        </div>
+    </div>
+  </div>
